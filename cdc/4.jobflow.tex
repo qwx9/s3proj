@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+% Analyse de l'existant >> je ne sais pas qui l'a, je propose mettre
+% au moins un exemple du fichier modèle entree (en annexe peut être)   
+% avec une mini-description  des params dans un tableau 
+% on peut s'entraider pour le faire :)
+
+\section{deroulement du projet} 
+
+\subsection{Planification}
+
+Le dévelopement de l'interface web pour l'utilisation du logiciel dédié au calcul de Maximum de vraissemblance \textbf{bppml.cpp} suivra les étapes suivantes:
+
+\begin{itemize}
+	\item Installation et test de fonctionnement de \textbf{BppSuite}: la suite logicielle est installée en local sur nos machines. Specifiquement, le logiciel \textbf{bppml.cpp} qui fait partie de la suite, a été choisi pour le commanditaire comme cible du dévélopement web pour ce projet. Des fichiers des paramètres du modèle en entrée sont fournis également par le commanditaire, afin de tester plusieurs scenarios possibles, du plus simple, en passant par les cas les plus fréquents "standar", jusqu'aux modèles plus exigeantes comptant d'avantage de paramètres.
+	
+	\item Installation et test du framework python FLASK: ce framework a été choisi 
+	en raison de son stabilité et l'ample gamme de librairies disponibles pour un developement rapide et au même temps efficace, ce qui est convenable en raison des contraintes de temps de ce projet.
+	Le test consistera en la création d'une interface initiale \textit{web-ppml}, acceptant en entréé un modèle ayant les paramètres minimaux requis. Cette étape intermediaire sera rapidement surmontée.
+	
+	\item Développement de la Version definitive de l'interface \textit{web-ppml}. Ceci sera realisé en trois phases:
+	
+	\begin{itemize}
+		\item mise en place et déploiement de l'interface web sur un Serveur hebergé à le LBBE ===!!!!((ici je ne suis pas sure, confirmer))
+		\item ajout des champs pour ingreser des paramètres pour des modèles complexes, avec les liens respectifs pour les donner en entrée à bppml.cpp et ajustement de paths de sortie.
+		\item derniers tests et correction d'éventuels erreurs.
+	\end{itemize}
+	
+	La prestation sera orientée vers la possibilité de faire évoluer le code (par exemple, par d'autres équipes invités) afin de couvrir progressivement d'avantage de logiciels et d'outils faisant partie de \textbf{pbbSuite}
+\end{itemize}
+
+
+\subsection{ Plan d'assurance qualité }
+ Pour contrôler la qualité du logiciel, à chaque test effectué la sortie sera  évaluée sous critères de cohérence, completude (aucun fichier de sortie omis ou delaissé) et structure. Sur des modèles plus complexes, l'aval des sorties par l'expert (commanditaire) sera nécessaire.
+ 
+\subsection{Documentation} 
+La documentation sera apportée en totalité dans un repositoire GitHub.
+% mettre ici une 'arborescence ?????:
+
+	
+\subsection{Responsabilités}
+\subsubsection{Maîtrise d'ouvrage}
+L'équipe Bio++ development team, representé par M. Laurent Gueguen est le commanditaire du présent travail. Les delais données correspondent a ceux de la matière Projet du M2 bio-info, ayant pour dates clés les suivantes:
+\begin{itemize}
+	\item 25/09 : description des besoins par le maître d'ouvrage.
+	\item 30/09 : apport des exemples et Tutoriel par le maître d'ouvrage.
+	\item 09/10 : rendu du cahier des charges 
+	\item / : délivrance du projet 
+\end{itemize}
+Il n'y a pas de budget officiel institutionnel consacré à ce projet. 
+
+\subsubsection{Maîtrise d'oeuvre}
+""NOUS"" avec l'aide de M. Guillaume Launay
+
+\end{document}
