@@ -1,5 +1,0 @@
-3.1 couts
-
-3.2 delais
-
-3.3 autres contraintes
