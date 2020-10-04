@@ -1,7 +1,0 @@
-1.1 contexte
-
-1.2 objectives
-
-1.3 description de l'existant
-
-1.4 criteres d'acceptabilite du produit
