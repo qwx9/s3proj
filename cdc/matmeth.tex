@@ -1,49 +1,157 @@
 \section{Matériel et méthodes}
 
-\subsection{Besoins fonctionnels}
+\subsection{Besoins fonctionnels principaux}
 
-- web ui complet
+L'objectif principal est de produire une interface web fonctionnelle pour les outils \textit{Bio++},
+et de la deployer sur un serveur du laboratoire d'accueil accessible depuis l'extérieur.
+L'interface doit impérativement être simple et accessible pour un publique non-expert,
+ciblé essentiellement sur des biologistes travaillant sur des projets en génétique évolutive.
+En outre, ce projet permet à un utilisateur potentiel
+de s'abstraire de l'installation des différents outils,
+qui nécessite une connaissance des environnements Unix-like
+leur administration, et la compilation de logiciels C++.
+En d'autres termes, l'idée de ce projet
+est de permettre de rendre la suite accessible
+à un publique beaucoup plus large
+en baissant significativement l'effort nécessaire
+pour se l'approprier.
 
-	* design et implémentation
+Pour ce faire, l'interface doit pouvoir faire l'intermédiaire entre un utilisateur
+et la suite \textit{Bio++},
+afin de pouvoir spécifier un modèle phylogénétique et rentrer des données,
+de façon transparente par rapport à l'implementation des outils.
 
-	* anglais et français
+En effet, la suite d'outils est imposante en premier abord,
+nécessitant l'apprentissage d'un langage déclaratif spécifique à \textit{Bio++},
+l'utilisation et le paramètrage des différents logiciels de la suite,
+en passant par l'entrée des données et la récupération des sorties,
+ainsi que leur interprétation.
 
-	* pages = ?
 
-		- authors
+\subsection{Considérations additionnelles}
 
-		- contacts
+L'interface doit rendre la suite plus attractive à de nouveaux utilisateurs.
+Ainsi, sa bonne performance est très importante.
+Sa réactivité, efficacité et la rapidité du rendu
+doit donc être bien prise en compte dans son design et implémentation.
 
-		- submission
+L'introduction à la suite \textit{Bio++} par le biais de la nouvelle interface
+sera facilité par l'accès à des templates de modèles évolutifs,
+et un tutoriel rapide,
+tous transposés depuis des documents et exemples
+déjà disponibles dans les dépôts de \textit{Bio++}.
+Leur présence sur l'interface permettra de comprendre par l'exemple
+les possibilités de la suite.
+Un accès au reste de la documentation déjà générée permettra de plus
+à des utilisateurs expérimentés d'aller plus loin dans leurs investigations,
+en passant par des modèles de plus en plus complexes.
 
-- documentation claire associée
-
-	* tutoriel transposé en ligne
-
-	* documentation des différentes parties de l'interface
-
-		- idéal: tooltips sur les différents composants
-
-- blackjack and hookers:
-
-	* demos simples et compliquées pour visualiser le truc, à partir des exemples sur les repos
-
-	* travail sur l'aspect visuel
-
-\subsection{Besoins non-fonctionnels}
-
-- performance adéquate en termes de réactivité: temps de réponse du serveur et affichage du client
-
-	* de l'interface: partie client/web ui peu lourde, rapide
-
-	* du serveur: pas de lag supplémentaire en plus du temps de calcul de bpp
-
-- exécution de la partie serveur sous linux
 
 \subsection{Design}
 
-...
+Pour répondre à ces besoins,
+le design considéré est celui d'une architecture serveur-client classique.
+
+La partie client sera divisée en deux composantes,
+l'une gérant l'entrée et la validation des données et paramètres,
+et l'autre le rendu des résultats et leur visualisation.
+
+La partie serveur elle communiquera avec le client
+pour générer les lignes de commandes et fichiers d'entrée
+pour lancer les outils \textit{Bio++},
+puis renvoyer les résultats du calcul à l'utilisateur.
+
+Le déployement de l'outil devra être facile et rapide
+pour prendre en compte des changements de serveur
+ou d'organisation du système de fichiers différente dans l'avenir.
+Sa prise en charge par une autre équipe après le terme du projet
+doit être sans effort.
+Les dépendances du projet doivent donc en outre
+être faciles à gérer.
+L'implémentation ne doit pas utiliser des chemins en dur sur le système de fichiers
+et utiliser des fichiers de configuration
+pour s'abstraire de sa localisation.
+
+En termes de performance,
+le temps de réponse du serveur doit être minimale,
+sans temps de latence supplémentaire par rapport au temps de calcul de la suite.
+De l'autre côté, la partie client doit être peu lourde
+pour conserver une rapidité même sur des ordinateurs peu puissants,
+ce qui est le cas assez fréquemment.
+
+La suite \textit{Bio++} peut prendre en charge
+des types de données multiples, un ou plusieurs sous-modèles,
+avec potentiellement des paramètres différents,
+et une multitude de combinaisons
+qui rend le nombre de possibilités rapidement ingérable.
+Le programme initial sera donc très simple mais modulaire et extensible,
+pour implémenter les fonctionnalités basiques,
+qui vont soutenir le reste de l'interface,
+très rapidement.
+Au début, l'interface ne gérera que
+des combinaisons d'entrées et de modèles très simples,
+puis de plus en plus de possibilités seront ajoutées de façon itérative.
+Ceci permettra
+de tester facilement au fur et à mesure les nouvelles fonctionnalités,
+de permettre de limiter l'implémentation dans le cadre de ce projet
+aux fonctionnalités principales,
+de donner la capabilité d'ajouter le reste par la suite,
+et de s'adapter à l'évolution future de la suite.
+
 
 \subsection{Implementation}
 
-...
+L'interface sera basée sur une installation de Linux,
+adaptée au serveur disponible hébergé par le laboratoire d'accueil.
+
+Les données d'entrée sont une ou plusieurs séquences d'alphabet différent
+(protéique, nucléotidique, etc.),
+un ou plusieurs arbres phylogénétiques élaborés précedemment,
+\textbf{et autres}.
+Les séquences sont assumées propres et alignées au préalable.
+
+\textbf{cf notes: i/o}
+
+Le paramétrage se fera en commençant par un modèle bare-bones,
+ou un template de modèle existant,
+par le biais de boutons et de menus déroulants
+pour rajouter de plus en plus d'éléments au modèle
+en fonction des besoins.
+Le modèle courant sera visualisé sur un graphe acyclique dirigé,
+sur lequel des éléments pourront directement être ajoutés,
+copiés, masqués, etc.
+\textbf{interface principal = DAG?}
+
+Les sorties seront une phylogénie optimisée
+et des visualisations.
+
+Le serveur peut être implémenté sous Python avec Flask.
+
+Le client utilisera Typescript transpilé en javascript.
+Les sorties sont attendues à être assez simples,
+pour ne nécessiter que des visualisations relativement simples
+sur graphiques SVG générées par D3.js.
+Une implémentation single-page est souhaitée.
+
+L'aspect visuel sera géré par des fichiers CSS.
+
+Les pages exposées à l'utilisateur seront clairement documentées,
+soit sur une page dédiée,
+soit directement et de façon non-intrusive sur l'interface.
+De plus, des tool-tips sur les différentes parties de l'interface
+la rendront plus facilement utilisable.
+Une page indiquera les auteurs, des contacts,
+des liens vers les dépôt et leur site officiel,
+et les articles de recherche sur la suite.
+
+\textbf{cf notes: détails d'implementation}
+
+
+\subsection{Extensions possibles}
+
+L'interface sera implémentée en français durant le projet,
+mais à terme, elle devrait être en anglais d'abord,
+avec une option pour la traduire en français.
+
+La fonctionnalité de l'interface est primordiale,
+mais un travail sur son aspect visuel est souhaitable également.
