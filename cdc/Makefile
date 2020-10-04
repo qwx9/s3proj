@@ -1,4 +1,4 @@
-OUT=ProjetS3.CahierDesCharges.Bonnet.Guichard.LascrouxDeisy.pdf
+OUT=ProjetS3.CahierDesCharges.Bonnet.Guichard.LascrouxDeisy
 
 .PHONY: default
 default: $(OUT).pdf
