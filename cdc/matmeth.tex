@@ -125,6 +125,17 @@ copiés, masqués, etc.
 Les sorties seront une phylogénie optimisée
 et des visualisations.
 
+Les logiciels ne dépendent pas de données volumineuses
+ou de connection à une base de données,
+donc la gestion de l'espace de disque dur ne sera pas conséquente.
+Par contre, les outils \textit{Bio++} peuvent,
+pour des modèles relativement complexes,
+prendre beaucoup de temps de calcul.
+Les résultats devront ainsi potentiellement
+être rendus en différé,
+par exemple par notification par e-mail,
+et en fournissant un lien unique vers eux.
+
 Le serveur peut être implémenté sous Python avec Flask.
 
 Le client utilisera Typescript transpilé en javascript.
@@ -145,6 +156,10 @@ des liens vers les dépôt et leur site officiel,
 et les articles de recherche sur la suite.
 
 \textbf{cf notes: détails d'implementation}
+
+Le développement se fera en local sur machine personnelles
+avant de le déployer pour qu'il soit accessible publiquement,
+pour avoir directement un site fonctionnel dès publication.
 
 
 \subsection{Extensions possibles}
