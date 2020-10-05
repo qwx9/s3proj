@@ -7,33 +7,59 @@
 % avec une mini-description  des params dans un tableau 
 % on peut s'entraider pour le faire :)
 
-\section{deroulement du projet} 
+\section{Déroulement du projet} 
 
 \subsection{Planification}
 
-Le dévelopement de l'interface web pour l'utilisation du logiciel dédié au calcul de Maximum de vraissemblance \textbf{bppml.cpp} suivra les étapes suivantes:
+Le développement de l'interface web pour l'utilisation du 
+logiciel dédié au calcul de Maximum de vraisemblance \textbf{bppml.cpp} suivra les
+ étapes suivantes:
 
 \begin{itemize}
-	\item Installation et test de fonctionnement de \textbf{BppSuite}: la suite logicielle est installée en local sur nos machines. Specifiquement, le logiciel \textbf{bppml.cpp} qui fait partie de la suite, a été choisi pour le commanditaire comme cible du dévélopement web pour ce projet. Des fichiers des paramètres du modèle en entrée sont fournis également par le commanditaire, afin de tester plusieurs scenarios possibles, du plus simple, en passant par les cas les plus fréquents "standar", jusqu'aux modèles plus exigeantes comptant d'avantage de paramètres.
+	\item Installation et test de fonctionnement de \textbf{BppSuite}: la suite logicielle est installée en local sur nos machines. 
+	Spécifiquement, le logiciel \textbf{bppml.cpp} qui fait partie de la suite, a été choisi pour le commanditaire comme cible 
+	du développement web pour ce projet. Des fichiers des paramètres du modèle en entrée sont fournis également par le commanditaire, 
+	afin de tester plusieurs scenarios possibles, du plus simple, en passant par les cas les plus fréquents "standard", 
+	jusqu'aux modèles plus exigeantes comptant d'avantage de paramètres. Pendant cette étape nous aurons l'opportunité d'explorer
+	 la modélisation des processus évolutifs en phylogénie.
 	
-	\item Installation et test du framework python FLASK: ce framework a été choisi 
-	en raison de son stabilité et l'ample gamme de librairies disponibles pour un developement rapide et au même temps efficace, ce qui est convenable en raison des contraintes de temps de ce projet.
-	Le test consistera en la création d'une interface initiale \textit{web-ppml}, acceptant en entréé un modèle ayant les paramètres minimaux requis. Cette étape intermediaire sera rapidement surmontée.
-	
-	\item Développement de la Version definitive de l'interface \textit{web-ppml}. Ceci sera realisé en trois phases:
-	
+	\item Développement d'une application en locale: le framework python FLASK et des librairies npm 
+	(le gestionnaire de paquets officiel de Node.js) 
+	ont été choisis en raison du bon rapport entre flexibilité et stabilité, 
+	ayant une ample gamme de librairies disponibles pour un développement rapide et au même temps efficace, 
+	ce qui est convenable en raison des contraintes de temps du projet.
+
+	On produira un premier prototype  \textit{web-ppml}, acceptant en entrée un modèle ayant les paramètres minimaux requis. 
+	Cette étape intermédiaire sera rapidement surmontée pour offrir au client la totalité des possibles affectations 
+	de variables de bppml (plusieurs arbres, plusieurs modèles) .
+	Ceci sera réalisée en trois phases parallèles:
 	\begin{itemize}
-		\item mise en place et déploiement de l'interface web sur un Serveur hebergé à le LBBE ===!!!!((ici je ne suis pas sure, confirmer))
-		\item ajout des champs pour ingreser des paramètres pour des modèles complexes, avec les liens respectifs pour les donner en entrée à bppml.cpp et ajustement de paths de sortie.
+		\item Développement de l'interface entrée qui permettra un usage intuitif de la part du client. 
+		Le script .js capture les variables insérées par l'utilisateur. 
+		\item Scripting pour la transmission des variables depuis celles capturées par .js en passant par le langage 
+		python (Flask) jusqu'un fichier .txt qui est donnée en entrée à bppml.
+		\item Scripting pour la capture soit des résultats, soit des messages d'erreur (stderr) et transmission à travers 
+		le framework Flask vers le client, et visualisation de l'arbre obtenu \textit{in situ}. 
+	\end{itemize}
+	
+	La possibilité de boucler des résultats vers l'entrée client sera étudiée.
+	 
+	\item Mise en place de la Version définitive de \textit{web-ppml} : le même framework utilisé à l'étape précédente peut être 
+		
+	\begin{itemize}
+		\item mise en place et déploiement de l'interface web sur un Serveur.
 		\item derniers tests et correction d'éventuels erreurs.
 	\end{itemize}
 	
-	La prestation sera orientée vers la possibilité de faire évoluer le code (par exemple, par d'autres équipes invités) afin de couvrir progressivement d'avantage de logiciels et d'outils faisant partie de \textbf{pbbSuite}
+	La prestation sera orientée vers la possibilité de faire évoluer le code (par exemple, par d'autres équipes invités) 
+	afin de couvrir progressivement d'avantage de logiciels faisant partie de \textbf{pbbSuite}
 \end{itemize}
 
 
-\subsection{ Plan d'assurance qualité }
- Pour contrôler la qualité du logiciel, à chaque test effectué la sortie sera  évaluée sous critères de cohérence, completude (aucun fichier de sortie omis ou delaissé) et structure. Sur des modèles plus complexes, l'aval des sorties par l'expert (commanditaire) sera nécessaire.
+\subsection{Plan d'assurance qualité}
+ Pour contrôler la qualité du logiciel, à chaque test effectué la sortie sera  
+ évaluée sous critères de cohérence, complétude (aucun fichier de sortie omis ou délaisse)
+ et structure. Sur des modèles plus complexes, l'aval des sorties par l'expert du bppml (commanditaire) sera nécessaire.
  
 \subsection{Documentation} 
 La documentation sera apportée en totalité dans un repositoire GitHub.
@@ -42,16 +68,28 @@ La documentation sera apportée en totalité dans un repositoire GitHub.
 	
 \subsection{Responsabilités}
 \subsubsection{Maîtrise d'ouvrage}
-L'équipe Bio++ development team, representé par M. Laurent Gueguen est le commanditaire du présent travail. Les delais données correspondent a ceux de la matière Projet du M2 bio-info, ayant pour dates clés les suivantes:
+L'équipe Bio++ development team, représenté par M. Laurent Gueguen est le
+ commanditaire du présent travail. Les délais données correspondent a ceux de la matière 
+ Projet du M2 bio-info, ayant pour dates clés les suivantes:
 \begin{itemize}
 	\item 25/09 : description des besoins par le maître d'ouvrage.
 	\item 30/09 : apport des exemples et Tutoriel par le maître d'ouvrage.
 	\item 09/10 : rendu du cahier des charges 
-	\item / : délivrance du projet 
+	\item 17/12 : délivrable et soutenance 
 \end{itemize}
 Il n'y a pas de budget officiel institutionnel consacré à ce projet. 
 
 \subsubsection{Maîtrise d'oeuvre}
-""NOUS"" avec l'aide de M. Guillaume Launay
+
+La distribution des trois branches simultanées de développement sont attribuées comme suit:
+
+\begin{itemize}
+	\item Hadrien : interface entrée client, capture des variables.
+	\item Konstantinn : conduction variables depuis.js vers .py et bppml.
+	\item Johanna : interface sortie client, visualisation des résultats.
+\end{itemize}
+
+
+Le tuteur pédagogique est M. Guillaume Launay.
 
 %\end{document}
