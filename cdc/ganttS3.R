@@ -33,7 +33,6 @@ implémentation et intégration				:	deweb6, 20201111, 2w
 
 
 section Application Web Serveur
-mise en place du git					:	prep0, 20201022, 1d
 documentation						:	prep1, 20201112, 5d
 Déploiement en Serveur					:crit, prep2, 20201115, 1w
 finalisation et tests					:	prep3, after prep2, 5d
