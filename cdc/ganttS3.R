@@ -1,4 +1,9 @@
+#!/usr/bin/env Rscript
 # https://stackoverflow.com/questions/3550341/gantt-charts-with-r
+# this saves our Gentt stuff into good folder
+
+fileout1 = "fig/mermaid1.pdf"
+fileout2 = "fig/mermaid2.pdf"
 library(DiagrammeR)
 x <- mermaid("
 gantt
@@ -46,4 +51,19 @@ optimisations de l application			:	sec1, after app0, 20201202
 
 ", width=1280, height=1024)
 #print(x)
-plotly::export(x, file = "mermaid.png")
+library(webshot)
+# webshot::install_phantomjs()
+plotly::export(x, file = fileout1) #this function is deprecated but it works fine !
+if ( file.exists(fileout1) ){
+	print(paste("despite deprecated warning, pdf image saved succesfully into", fileout1))
+}else{
+	print("trying another method") #autre option
+	o <- tryCatch({library(DiagrammeRsvg)
+		library(magrittr)
+		library(rsvg)
+		x %>% htmltools::html_print() %>% webshot::webshot(file=fileout2)
+		}, error=function(err){
+		print(paste("bad trick....",err))}
+		)
+}  # I tested both methods, they  change font style to less nice!!!!!!
+#end
