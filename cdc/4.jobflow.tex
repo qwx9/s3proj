@@ -29,46 +29,51 @@ logiciel dédié au calcul de Maximum de vraisemblance \textbf{bppml.cpp} suivra
 	ayant une ample gamme de librairies disponibles pour un développement rapide et au même temps efficace, 
 	ce qui est convenable en raison des contraintes de temps du projet.
 
-	On produira un premier prototype  \textit{web-ppml}, acceptant en entrée un modèle ayant les paramètres minimaux requis. 
-	Cette étape intermédiaire sera rapidement surmontée pour offrir au client la totalité des possibles affectations 
-	de variables de bppml (plusieurs arbres, plusieurs modèles) .
-	Ceci sera réalisée en trois phases parallèles:
-	\begin{itemize}
+	On produira un premier prototype  \textit{bpp-web}, acceptant en entrée un modèle ayant les paramètres minimaux requis. 
+	Cette application intermédiaire sera rapidement enrichie pour offrir au client la totalité des possibles affectations 
+	de variables nécessaires au logiciel bppml (plusieurs arbres, plusieurs modèles).
+	Ceci sera réalisé en trois phases parallèles:
+	\begin{enumerate}
 		\item Développement de l'interface entrée qui permettra un usage intuitif de la part du client. 
-		Le script .js capture les variables insérées par l'utilisateur. 
+		Un script .js capture les variables insérées par l'utilisateur. 
 		\item Scripting pour la transmission des variables depuis celles capturées par .js en passant par le langage 
-		python (Flask) jusqu'un fichier .txt qui est donnée en entrée à bppml.
+		python (Flask) jusqu'un fichier .txt qui est donné en entrée au logiciel bppml.
 		\item Scripting pour la capture soit des résultats, soit des messages d'erreur (stderr) et transmission à travers 
 		le framework Flask vers le client, et visualisation de l'arbre obtenu \textit{in situ}. 
-	\end{itemize}
+	\end{enumerate}
 	
 	La possibilité de boucler des résultats vers l'entrée client sera étudiée.
 	 
-	\item Mise en place de la Version définitive de \textit{web-ppml} : le même framework utilisé à l'étape précédente peut être 
-		
+	\item La Version définitive de \textit{bpp-web} reposera sur le même framework développé
+	à l'étape précédente, ce qui sera réalisé en deux pas simultanés:
 	\begin{itemize}
-		\item mise en place et déploiement de l'interface web sur un Serveur.
-		\item derniers tests et correction d'éventuels erreurs.
+		\item la mise en place et déploiement de l'interface web sur un Serveur Linux.
+		\item l'exécution des derniers tests et correction d'éventuels erreurs.
 	\end{itemize}
 	
-	La prestation sera orientée vers la possibilité de faire évoluer le code (par exemple, par d'autres équipes invités) 
-	afin de couvrir progressivement d'avantage de logiciels faisant partie de \textbf{pbbSuite}
+	Les délais pour chacune des étapes du projet sont visualisés dans la figure~\ref{planning}.
+	\begin{figure}[ht!]
+		\caption{\label{planning} Chronologie de l'exécution du projet}
+		\includegraphics[width=\textwidth]{fig/capture_gantt.png}
+	\end{figure}
+	
+	La prestation sera orientée vers la possibilité de faire évoluer le code (par exemple, par d'autres équipes invitées) 
+	afin de couvrir progressivement d'avantage de logiciels faisant partie de \textbf{bppSuite} et \textbf{bpp}.
 \end{itemize}
 
 
 \subsection{Plan d'assurance qualité}
  Pour contrôler la qualité du logiciel, à chaque test effectué la sortie sera  
- évaluée sous critères de cohérence, complétude (aucun fichier de sortie omis ou délaisse)
+ évaluée sous critères de cohérence, complétude (aucun fichier de sortie omis ou délaissé)
  et structure. Sur des modèles plus complexes, l'aval des sorties par l'expert du bppml (commanditaire) sera nécessaire.
  
 \subsection{Documentation} 
-La documentation sera apportée en totalité dans un repositoire GitHub.
-% mettre ici une 'arborescence ?????:
+La documentation sera apportée en totalité dans un dépôt GitHub.
 
 	
 \subsection{Responsabilités}
 \subsubsection{Maîtrise d'ouvrage}
-L'équipe Bio++ development team, représenté par M. Laurent Gueguen est le
+L'équipe Bio++ development team, représentée par M. Laurent Guéguen est le
  commanditaire du présent travail. Les délais données correspondent a ceux de la matière 
  Projet du M2 bio-info, ayant pour dates clés les suivantes:
 \begin{itemize}
@@ -81,11 +86,11 @@ Il n'y a pas de budget officiel institutionnel consacré à ce projet.
 
 \subsubsection{Maîtrise d'oeuvre}
 
-La distribution des trois branches simultanées de développement sont attribuées comme suit:
+Les trois branches simultanées de développement sont attribuées comme suit:
 
 \begin{itemize}
 	\item Hadrien : interface entrée client, capture des variables.
-	\item Konstantinn : conduction variables depuis.js vers .py et bppml.
+	\item Konstantinn : conduction des variables depuis.js vers .py et bppml.
 	\item Johanna : interface sortie client, visualisation des résultats.
 \end{itemize}
 

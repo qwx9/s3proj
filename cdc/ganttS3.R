@@ -19,7 +19,7 @@ Tutoriel, identification infos entrée-sortie 		:active, pma2, 20201005,3d
 familiarisation modèlisation en phylogénie		:active, pma3, 20200925,3w
 
 section Conception et pre-réquis
-définition de larchitecture de lapplication		:done, cp1, 20201002, 1d
+définition de l architecture de l application		:done, cp1, 20201002, 1d
 appropriation de Flask et npm    			:active, cp2, 20201006, 5d
 prise en main de typescript    			: cp3, 20201007, 10d
 
@@ -42,8 +42,8 @@ prise en main 						:app0, after prep2, 5d
 corrections éventuelles				:	app1, after app0, 2d
 
 section Objectifs secondaires et optionnels
-optimisations de l'application				:	sec1, after app0, 20201202
-
+optimisations de l application			:	sec1, after app0, 20201202
 
 ", width=1280, height=1024)
-print(x)
+#print(x)
+plotly::export(x, file = "mermaid.png")
