@@ -3,12 +3,12 @@
 
 \section{Introduction}	% TODO: rename
 
-\subsection{Context}
+\subsection{Contexte}
 	%democratisation des outils, facilité d'utilisation, solution no code, cloud computing?
 	
 	
-	Dans tous les domaines de la biologie de nouveaux programmes sont développés au quotidient. Ces programmes sont en constante évolution et de plus en plus complexes. Avec cette complexité grandissante, ces outils peuvent se retrouver en pratique peu utilisés par de nombreux utilisateurs potentiels. En effet, l'installation ou l'appel de programmes via la ligne de commande peut vite être rédhibitoire.
-	La montée du cloud computing et des solutions no code accessibles par des interfaces web illustre ce mouvement de démoratisation des outils en les rendant plus facile d'utilisation, sans installation locale.
+	Dans tous les domaines de la biologie de nouveaux programmes sont développés au quotidien. Ces programmes sont en constante évolution et de plus en plus complexes. Avec cette complexité grandissante, ces outils peuvent se retrouver en pratique peu utilisés par de nombreux utilisateurs potentiels. En effet, l'installation ou l'appel de programmes via la ligne de commande peut vite être rédhibitoire.
+	La montée du cloud computing et des solutions no code accessibles par des interfaces web illustre ce mouvement de démocratisation des outils en les rendant plus facile d'utilisation, sans installation locale.
 	L'objectif de ce projet est de développer une interface web permettant l'utilisation de bppsuite (CITATION) dont le paramétrage de l'appel peut devenir très lourd.
 	
 	
@@ -16,24 +16,24 @@
 	%pres bio++ et bppsuite
 	%pres des modules (entrée sortie?)
 	%appel du programme actuel
-	Bio++ (CITATION) est une suite de libraries en C++ dédiées à la phylogénie et à l'analyse d'évolution de séquences biologiques. Au seins de cette suite, bppsuite est une solution stand alone qui permet l'utilisation de libraries de Bio++ (bpp-core, bpp-seq, bpp-phyl, bpp-popgen) dont le but est de simuler l'évolution de séquences, des analyses phylogéniques, l'estimation du meilleur modèle d'évolution... Cette suite manipule des objets variées tels que des abres, des séquences, des modèles, des prossesus dont les possibilité combinatoire sont infinies. Voici la listes des modules de Bio++ sur lesquels nous allons travailler:
+	Bio++ (CITATION) est une suite de librairies en C++ dédiées à la phylogénie et à l'analyse d'évolution de séquences biologiques. Au sein de cette suite, bppsuite est une solution stand alone qui permet l'utilisation de libraries de Bio++ (bpp-core, bpp-seq, bpp-phyl, bpp-popgen) dont le but est de simuler l'évolution de séquences, des analyses phylogéniques, l'estimation du meilleur modèle d'évolution... Cette suite manipule des objets variées tels que des abres, des séquences, des modèles, des process dont les possibilités combinatoires sont infinies. Voici la liste des modules de Bio++ sur lesquels nous allons travailler:
 %itemize?
 	
 	\subsubsection*{bpp-seq}
 	Cette librairie est composée de classes qui stockent les séquences biologiques. Ces séquences peuvent être de l'ADN, des codons, de l'ARN ou des acides aminés. Cette librairie supporte aussi les séquences alignées.
 	
 	\subsubsection*{bpp-phyl}
-	Cette librarie contient les classes et les méthodes pour étudier l'évolution phylogénique et moléculaire. C'est elle qui définie la classe Tree qui est une liste de noeuds. Un noeud contients les methodes permettant d'accéder aux noeuds père et fils ainsi que d'autre information comme sont nom, la longuer de la branche vers le noeud père...
-	Elle contient aussi les outils permettant de reconstruire une phylogénie à partir des séquences biologiques. Cette reconstruction peut se faire avec différente méthodes : maximum de parsimony, par distance, par vraissemblance...
-	De nombreux modèles evolutifs sont aussi fournis avec cette librarie. Tous les modèles classique de substitution pour les nucléotides ou les protéines sont inclus, de plus l'implémentation de modèles est possible (EXEMPLE DES MODELES?).
+	Cette librarie contient les classes et les méthodes pour étudier l'évolution phylogénique et moléculaire. C'est elle qui définit la classe Tree qui est une liste de noeuds. Un noeud contient les methodes permettant d'accéder aux noeuds père et fils ainsi que d'autre information comme sont nom, la longuer de la branche vers le noeud père...
+	Elle contient aussi les outils permettant de reconstruire une phylogénie à partir des séquences biologiques. Cette reconstruction peut se faire avec différente méthodes : maximum de parsimony, par distance, par vraisemblance...
+	De nombreux modèles evolutifs sont aussi fournis avec cette librarie. Tous les modèles classiques de substitution pour les nucléotides ou les protéines sont inclus, de plus l'implémentation de modèles est possible.
 	\subsubsection*{bpp-popgen}
-	Cette librarie a été conçue pour l'étude de génétique de population. Elle se base sur bpp-seq et permet de manipuler des jeux de séquences ainsi que de calculer différentes statistiques comme le polymorphisme, l'hétérozygosie...
+	Cette librairie a été conçue pour l'étude de génétique de population. Elle se base sur bpp-seq et permet de manipuler des jeux de séquences ainsi que de calculer différentes statistiques comme le polymorphisme, l'hétérozygosie...
 	
 	\subsubsection*{bpp-core}
 	Cette librarie définie tous les objets de base (string, numbers, vectors) utilisés par les librairies qui composent Bio++.
 	
-	\subsubsection*{bpp-suite}
-	Toutes les libraries citées précédement sont indépendantes les unes des autres. Le rôle de bppsuite est d'offir une solutioon stand alone qui permet de combiner tous ces modules afin de mener des analyses complexes avec une sytaxe commune. En combinant des jeux de données grands, avec une multitude d'abres et de modèles différents les possibiltés d'appel de bppsuite sont nombreuses et complexes. Le paramétrage de bppsuite peut se faire via la ligne de commande mais en pratique elle est plutot faite via un fichier texte de configuration (AJOUTER EXEMPLE SUJET?). Ce fichier définie les objets à manipuler et les paramètres qui leurs sont associés.
+	\subsubsection*{bppsuite}
+	Toutes les libraries citées précédement sont indépendantes les unes des autres. Le rôle de bppsuite est d'offir des utilitaires prêts à l'emploi qui permetent de combiner tous ces modules afin de mener des analyses complexes avec une sytaxe commune. En combinant des jeux de données grands, avec une multitude d'abres et de modèles différents les possibiltés d'appel de bppsuite sont nombreuses et complexes. Le paramétrage de bppsuite peut se faire via la ligne de commande mais en pratique elle est plutot faite via un fichier texte de configuration. Ce fichier définie les objets à manipuler et les paramètres qui leur sont associés.
 	
 	
 \subsection{Objectifs}
@@ -41,7 +41,7 @@
 	%Recuperation des fichiers résultats
 	%Aller retour entre config avec GUI et fichier text de généré
 	%au long terme de runner sur un serveur
-	La complexité grandissante du fichier de paramétrage, associé à une grammaire propre peutêtre rédibitoire à l'utilisation de bppsuite. L'objectif de ce projet est de démocratiser l'utilisation de cet outil en développement une interface web intuitive qui permettera à l'utilisateur de réaliser la modélisation qu'il désire et retournera le fichier de configuration. Cette interface devra pouvoir jongler entre le paramétrage de bppsuite et une repésentation visuelle de la modélisation. Cette modélisation sera ensuite éxécutées par bbpsuite et les fichiers de sorties devront aussi pouvoir être accessible par l'interface. Au long terme, le but est de faire tourner bpp suite sur un serveur situé sur le campus, offrant aux utilisateurs curieux une version sans code, ou installation afin de pouvoir facilement utiliser ces outils.
+	La complexité grandissante du fichier de paramétrage, associé à une grammaire propre peut être rédhibitoire à l'utilisation de bppsuite. L'objectif de ce projet est de démocratiser l'utilisation de cet outil en développant une interface web intuitive qui permettera à l'utilisateur de réaliser la modélisation qu'il désire et retournera le fichier de configuration. Cette interface devra pouvoir jongler entre le paramétrage de bppsuite et une repésentation visuelle de la modélisation. Cette modélisation sera ensuite éxécutées par bppsuite et les fichiers de sorties devront aussi pouvoir être accessible par l'interface. Au long terme, le but est de faire tourner bppsuite sur un serveur situé sur le campus, offrant aux utilisateurs curieux une version sans code et installation afin de pouvoir facilement utiliser ces outils.
 	
 \subsection{Acceptabilité}
 	%Interface graphique
