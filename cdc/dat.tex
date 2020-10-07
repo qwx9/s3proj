@@ -3,6 +3,16 @@
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
-\usepackage{lmodern}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% making bold+small caps work: https://tex.stackexchange.com/questions/27411/small-caps-and-bold-face
+% load latin modern roman
+\rmfamily
+% enable some NFSS declarations: lmr should take bold and bold extended (bx)
+% weight and sc shape from corresponding computer modern roman font, for the T1
+% encoding
+\DeclareFontShape{T1}{lmr}{b}{sc}{<->ssub*cmr/bx/sc}{}
+\DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub*cmr/bx/sc}{}
