@@ -1,0 +1,19 @@
+<doctype html>
+<html>
+	<head>
+		{% if title %}
+			<title> bpp-web {{title}} </title>
+		{% else %}
+			<title>bpp-web</title>
+		{% endif %}
+	</head>
+	<body>
+		<h1>bpp-web</h1>
+		<li><a href="{{ url_for('home') }}">Home</a></li>
+		<li><a href="{{ url_for('querry') }}">Querry</a></li>
+		<li><a href="{{ url_for('results') }}">Results</a></li>
+		{% block content%}
+		
+		{% endblock %}
+	</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends "template1.html" %}
+{% block content %}
+	<h2>querry page</h2>
+	<form method="POST" action="">
+		{{form.hidden_tag() }}
+		{{ form.field1.label() }}
+		{{ form.field1() }}
+		{{ form.submit() }}
+	</form>
+{% endblock content %}
