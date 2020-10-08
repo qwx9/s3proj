@@ -22,7 +22,7 @@ afin de pouvoir spécifier un modèle phylogénétique et rentrer des données,
 de façon transparente par rapport à l'implementation des outils.
 
 En effet, la suite d'outils est imposante en premier abord,
-nécessitant l'apprentissage d'un langage déclaratif spécifique à \textit{Bio++},
+nécessitant l'apprentissage d'un langage déclaratif spécifique à \textit{bppsuite},
 l'utilisation et le paramètrage des différents logiciels de la suite,
 en passant par l'entrée des données et la récupération des sorties,
 ainsi que leur interprétation.
@@ -47,9 +47,37 @@ Un accès au reste de la documentation déjà générée permettra de plus
 en passant par des modèles de plus en plus complexes.
 
 
+\subsection{Pipeline basique}
+
+Dans son utilisation la plus basique,
+\textit{bppml} prend en entrée une séquence alignée,
+un arbre phylogénétique construit au préalable,
+et un modèle avec ses paramètres
+avec leurs valeurs initiales.
+L'arbre est complet et topologique,
+et n'est pas optimisé par le logiciel:
+c'est le processus évolutif qui l'est.
+
+Les paramètres spécifiés du modèle sont estimés par maximum de vraisemblance
+pour inférer le meilleur modèle étant donné l'arbre et les séquences.
+Les sorties comprennent les paramètres inférés du modèle,
+la meilleure phylogénie reconstruite,
+et des fichiers intermédiaires.
+Ces fichiers peuvent être réutilisés ensuite
+avec d'autres logiciels de la suite \textit{Bio++}
+pour d'autres calculs.
+
+La complexité du projet provient du fait que les données d'entrée
+peuvent être toutes les combinaisons imaginables
+de séquences, de modèles, d'arbres, paramètres ou racines d'arbres,
+de nombre différent à chaque fois.
+Les modèles peuvent être emboîtés ou réutilisés
+dans un autre run de \textit{bppml}.
+
+
 \subsection{Design}
 
-Pour répondre à ces besoins,
+Pour répondre aux besoins,
 le design considéré est celui d'une architecture serveur-client classique.
 
 La partie client sera divisée en deux composantes,
@@ -58,7 +86,7 @@ et l'autre le rendu des résultats et leur visualisation.
 
 La partie serveur elle communiquera avec le client
 pour générer les lignes de commandes et fichiers d'entrée
-pour lancer les outils \textit{Bio++},
+pour lancer \textit{bppml},
 puis renvoyer les résultats du calcul à l'utilisateur.
 
 Le déployement de l'outil devra être facile et rapide
@@ -79,7 +107,7 @@ De l'autre côté, la partie client doit être peu lourde
 pour conserver une rapidité même sur des ordinateurs peu puissants,
 ce qui est le cas assez fréquemment.
 
-La suite \textit{Bio++} peut prendre en charge
+La suite \textit{bppml} peut prendre en charge
 des types de données multiples, un ou plusieurs sous-modèles,
 avec potentiellement des paramètres différents,
 et une multitude de combinaisons
@@ -130,7 +158,7 @@ et des visualisations.
 Les logiciels ne dépendent pas de données volumineuses
 ou de connection à une base de données,
 donc la gestion de l'espace de disque dur ne sera pas conséquente.
-Par contre, les outils \textit{Bio++} peuvent,
+Par contre, \textit{bppml} peuvent,
 pour des modèles relativement complexes,
 prendre beaucoup de temps de calcul.
 Les résultats devront ainsi potentiellement
@@ -164,11 +192,10 @@ avant de le déployer pour qu'il soit accessible publiquement,
 pour avoir directement un site fonctionnel dès publication.
 
 \begin{figure}
-	\includegraphics[scale=0.5]{schemaConc.png}
+	\caption{Design général de \textit{bpp-web}}
+	\includegraphics[scale=0.5]{fig/SchemaConcept.pdf}
 	\centering
 \end{figure}
-
-\pagebreak
 
 
 
