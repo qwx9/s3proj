@@ -26,7 +26,7 @@
 	
 	\subsubsection*{bppsuite}
 	Toutes les libraries citées précédemment sont indépendantes les unes des autres. Le rôle de \textit{bppsuite} est d'offrir des utilitaires prêts à l'emploi qui permettent de combiner tous ces modules afin de mener des analyses complexes avec une syntaxe commune. En combinant des jeux de données grands, avec une multitude d'arbres et de modèles différents les possibilités d'appel de \textit{bppsuite} sont nombreuses et complexes. Le paramétrage de \textit{bppsuite} peut se faire via la ligne de commande mais en pratique elle est plutôt faite via un fichier texte de configuration. Ce fichier définie les objets à manipuler et les paramètres qui leur sont associés.
-	Un des composant de \textit{bppsuite} est \textit{bppml} qui applique les principes de maximum de vraissemblance à la phylogénie. C'est cette partie de \textit{bppsuite} que nous implémenterons sur le serveur.
+	Un des composant de \textit{bppsuite} est \textit{bppml} qui applique les principes de maximum de vraissemblance à la phylogénie. C'est cette partie de \textit{bppsuite} sur laquelle nous travaillerons.
 	
 	
 \subsection{Objectifs}
@@ -34,7 +34,7 @@
 	%Recuperation des fichiers résultats
 	%Aller retour entre config avec GUI et fichier text de généré
 	%au long terme de runner sur un serveur
-	La complexité grandissante du fichier de paramétrage, associé à une grammaire propre peut être rédhibitoire à l'utilisation de \textit{bppml}. L'objectif de ce projet est de démocratiser l'utilisation de cet outil en développant une interface web intuitive qui permettra à l'utilisateur de réaliser la modélisation qu'il désire et retournera le fichier de configuration. Cette interface devra pouvoir jongler entre le paramétrage de \textit{bppml} et une représentation visuelle de la modélisation. Cette modélisation sera ensuite exécutée par \textit{bppml} et les fichiers de sorties devront aussi pouvoir être accessible par l'interface. Au long terme, le but est de faire tourner \textit{bppml} sur un serveur situé sur le campus, offrant aux utilisateurs curieux une version sans code et installation afin de pouvoir facilement utiliser ces outils. Au long terme, les autres parties de \textit{bppsuite} pourront être ajouter à cette implémentation.
+	La complexité grandissante du fichier de paramétrage, associé à une grammaire propre peut être rédhibitoire à l'utilisation de \textit{bppml}. L'objectif de ce projet est de démocratiser l'utilisation de cet outil en développant une interface web intuitive qui permettra à l'utilisateur de réaliser la modélisation qu'il désire et retournera le fichier de configuration. Cette interface devra pouvoir jongler entre le paramétrage de \textit{bppml} et une représentation visuelle de la modélisation. Cette modélisation sera ensuite exécutée par \textit{bppml} et les fichiers de sorties devront aussi pouvoir être accessible par l'interface. Au long terme, le but est de faire tourner \textit{bppml} sur un serveur situé sur le campus, offrant aux utilisateurs curieux une version sans code et installation afin de pouvoir facilement utiliser ces outils. Au long terme, les autres parties de \textit{bppsuite} pourront être ajouter à cette implémentation appelée \textbf{bpp-web}.
 	
 \subsection{Acceptabilité}
 	%Interface graphique
