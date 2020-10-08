@@ -3,7 +3,7 @@
 \subsection{Besoins fonctionnels principaux}
 
 L'objectif principal est de produire une interface web fonctionnelle pour les outils \textit{Bio++},
-et de la deployer sur un serveur du laboratoire d'accueil accessible depuis l'extérieur.
+et de la déloyer sur un serveur du laboratoire d'accueil accessible depuis l'extérieur.
 L'interface doit impérativement être simple et accessible pour un publique non-expert,
 ciblé essentiellement sur des biologistes travaillant sur des projets en génétique évolutive.
 En outre, ce projet permet à un utilisateur potentiel
@@ -19,11 +19,11 @@ pour se l'approprier.
 Pour ce faire, l'interface doit pouvoir faire l'intermédiaire entre un utilisateur
 et la suite \textit{Bio++},
 afin de pouvoir spécifier un modèle phylogénétique et rentrer des données,
-de façon transparente par rapport à l'implementation des outils.
+de façon transparente par rapport à l'implémentation des outils.
 
 En effet, la suite d'outils est imposante en premier abord,
 nécessitant l'apprentissage d'un langage déclaratif spécifique à \textit{bppsuite},
-l'utilisation et le paramètrage des différents logiciels de la suite,
+l'utilisation et le paramétrage des différents logiciels de la suite,
 en passant par l'entrée des données et la récupération des sorties,
 ainsi que leur interprétation.
 
@@ -100,7 +100,7 @@ pour générer les lignes de commandes et fichiers d'entrée
 pour lancer \textit{bppml},
 puis renvoyer les résultats du calcul à l'utilisateur.
 
-Le déployement de l'outil devra être facile et rapide
+Le déploiement de l'outil devra être facile et rapide
 pour prendre en compte des changements de serveur
 ou d'organisation du système de fichiers différente dans l'avenir.
 Sa prise en charge par une autre équipe après le terme du projet
@@ -134,11 +134,11 @@ Ceci permettra
 de tester facilement au fur et à mesure les nouvelles fonctionnalités,
 de permettre de limiter l'implémentation dans le cadre de ce projet
 aux fonctionnalités principales,
-de donner la capabilité d'ajouter le reste par la suite,
+de donner la capacité d'ajouter le reste par la suite,
 et de s'adapter à l'évolution future de la suite.
 
 
-\subsection{Implementation}
+\subsection{Implémentation}
 
 L'interface sera basée sur une installation de Linux,
 adaptée au serveur disponible hébergé par le laboratoire d'accueil.
@@ -176,12 +176,12 @@ Les processus évolutif global appliqué sur les séquences
 sera constitué de toutes ces parties, en dehors des séquences.
 Les sorties seront une phylogénie optimisée
 avec ses fichiers correspondants
-(intérmediaires, logs, résultats)
+(intermédiaires, logs, résultats)
 qui peuvent être téléchargés.
 La phylogénie elle-même sera représentée avec des graphiques interactifs.
 
 Les logiciels ne dépendent pas de données volumineuses
-ou de connection à une base de données,
+ou de connexion à une base de données,
 donc la gestion de l'espace de disque dur ne sera pas conséquente.
 Par contre, \textit{bppml} peuvent,
 pour des modèles relativement complexes,
