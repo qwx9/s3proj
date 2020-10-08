@@ -50,13 +50,14 @@ en passant par des modèles de plus en plus complexes.
 \subsection{Pipeline basique}
 
 Dans son utilisation la plus basique,
-\textit{bppml} prend en entrée une séquence alignée,
+\textit{bppml} prend en entrée une séquence alignée dans un alphabet nucléique,
 un arbre phylogénétique construit au préalable,
 et un modèle avec ses paramètres
 avec leurs valeurs initiales.
 L'arbre est complet et topologique,
 et n'est pas optimisé par le logiciel:
 c'est le processus évolutif qui l'est.
+Les séquences sont assumées propres et alignées au préalable.
 
 Les paramètres spécifiés du modèle sont estimés par maximum de vraisemblance
 pour inférer le meilleur modèle étant donné l'arbre et les séquences.
@@ -71,8 +72,18 @@ La complexité du projet provient du fait que les données d'entrée
 peuvent être toutes les combinaisons imaginables
 de séquences, de modèles, d'arbres, paramètres ou racines d'arbres,
 de nombre différent à chaque fois.
-Les modèles peuvent être emboîtés ou réutilisés
+La combinaison des différents modèles,
+qui peuvent être appliqués sur un arbre ou sur des branches individuelles,
+des racines d'arbres,
+avec des taux évolutifs différents ou pas, etc.,
+sont nommés des "processus" évolutifs,
+qui peuvent eux-même être emboîtés.
+Les modèles peuvent être réutilisés
 dans un autre run de \textit{bppml}.
+A terme, \textit{bppml} saura gérer des alphabets autres que nucléiques
+(protéique, codons, etc.),
+voire même les mélanger.
+Les processus sont ensuite appliqués sur les séquences en entrée.
 
 
 \subsection{Design}
@@ -84,7 +95,7 @@ La partie client sera divisée en deux composantes,
 l'une gérant l'entrée et la validation des données et paramètres,
 et l'autre le rendu des résultats et leur visualisation.
 
-La partie serveur elle communiquera avec le client
+La partie serveur elle communiquera avec la machine client
 pour générer les lignes de commandes et fichiers d'entrée
 pour lancer \textit{bppml},
 puis renvoyer les résultats du calcul à l'utilisateur.
@@ -132,28 +143,42 @@ et de s'adapter à l'évolution future de la suite.
 L'interface sera basée sur une installation de Linux,
 adaptée au serveur disponible hébergé par le laboratoire d'accueil.
 
-Les données d'entrée sont une ou plusieurs séquences nucléiques,
-un ou plusieurs arbres phylogénétiques élaborés précedemment,
-\textbf{et autres}.
-Les séquences sont assumées propres et alignées au préalable.
-A terme, l'outil saura gérer des alphabets autres
-(protéique, codons, etc.),
-voire même les mélanger.
+Elle devra à terme pouvoir gérer tous les types
+et combinaisons de données d'entrée qu'accepte \textit{bppml}.
+Des templates de runs entiers seront mis à disposition
+pour pouvoir réutiliser des modèles adaptés à des situations
+plus ou moins typiques ou complexes,
+ou même juste en tant qu'exemple.
 
-\textbf{cf notes: i/o}
+Des séquences pourront être entrées soit directement sur un champ textuel,
+soit en soumettant un fichier,
+par le biais d'un dialogue ou par drag-and-drop.
+Des arbres phylogénétiques pourront être soumis par le même mécanisme.
+Un nouvel élément de ce type pourra être rajouté et rempli de la même façon.
 
-Le paramétrage se fera en commençant par un modèle bare-bones,
-ou un template de modèle existant,
-par le biais de boutons et de menus déroulants
-pour rajouter de plus en plus d'éléments au modèle
-en fonction des besoins.
-Le modèle courant sera visualisé sur un graphe acyclique dirigé,
-sur lequel des éléments pourront directement être ajoutés,
-copiés, masqués, etc.
-\textbf{interface principal = DAG?}
+Les modèles pourront
+soit être rentrés directement dans la syntaxe reconnue par \textit{bppml},
+par exemple si les résultats d'un run sont réutilisés,
+ou alors en utilisant un mécanisme itératif pour construire un modèle interactivement.
+Il sera basé sur des éléments typiques et bien connus,
+comme des menus déroulants pour des options fréquentes,
+des champs de recherche si les options sont trop nombreuses,
+et des boutons pour modifier le nombre d'éléments ou les modifier.
+Le modèle courant pourrait avoir un support visuel
+qui pourrait être édité lui-même,
+pour ajouter, supprimer, ou masquer des éléments,
+ainsi que d'autres manipulations.
+De plus, des templates de modèles seront mis à disposition,
+pour construire des modèles à partir d'exemples fréquents,
+et pour copier ou sauvegarder des modèles construits sur l'interface.
 
+Les processus évolutif global appliqué sur les séquences
+sera constitué de toutes ces parties, en dehors des séquences.
 Les sorties seront une phylogénie optimisée
-et des visualisations.
+avec ses fichiers correspondants
+(intérmediaires, logs, résultats)
+qui peuvent être téléchargés.
+La phylogénie elle-même sera représentée avec des graphiques interactifs.
 
 Les logiciels ne dépendent pas de données volumineuses
 ou de connection à une base de données,
@@ -165,14 +190,14 @@ Les résultats devront ainsi potentiellement
 être rendus en différé,
 par exemple par notification par e-mail,
 et en fournissant un lien unique vers eux.
+La page résultats sera obtenue en suivant ce lien.
 
 Le serveur peut être implémenté sous Python avec Flask.
-
 Le client utilisera Typescript transpilé en javascript.
 Les sorties sont attendues à être assez simples,
 pour ne nécessiter que des visualisations relativement simples
 sur graphiques SVG générées par D3.js.
-Une implémentation single-page est souhaitée.
+Une implémentation single-page dynamique est souhaitée.
 
 L'aspect visuel sera géré par des fichiers CSS.
 
@@ -185,8 +210,6 @@ Une page indiquera les auteurs, des contacts,
 des liens vers les dépôt et leur site officiel,
 et les articles de recherche sur la suite.
 
-\textbf{cf notes: détails d'implementation}
-
 Le développement se fera en local sur machine personnelles
 avant de le déployer pour qu'il soit accessible publiquement,
 pour avoir directement un site fonctionnel dès publication.
@@ -198,12 +221,10 @@ pour avoir directement un site fonctionnel dès publication.
 \end{figure}
 
 
-
 \subsection{Extensions possibles}
 
-L'interface sera implémentée en français durant le projet,
-mais à terme, elle devrait être en anglais d'abord,
-avec une option pour la traduire en français.
+L'interface sera implémentée en anglais durant le projet,
+mais à terme, elle pourrait être traduite dans d'autres langues.
 
 La fonctionnalité de l'interface est primordiale,
 mais un travail sur son aspect visuel est souhaitable également.
