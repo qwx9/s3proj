@@ -4,11 +4,11 @@
 	Dans tous les domaines de la biologie de nouveaux programmes sont développés au quotidien. Ces programmes sont en constante évolution et de plus en plus complexes. Avec cette complexité grandissante, ces outils peuvent se retrouver en pratique peu utilisés par de nombreux utilisateurs potentiels. En effet, l'installation ou l'appel de programmes via la ligne de commande peut vite être rédhibitoire.
 	La montée du cloud computing et des solutions no code accessibles par des interfaces web illustre ce mouvement de démocratisation des outils en les rendant plus facile d'utilisation, sans installation locale.
 	L'objectif de ce projet est de développer une interface web permettant l'utilisation de \textit{bppsuite} dont le paramétrage de l'appel peut devenir très lourd.
-	Le projet est effectué avec le LBBE, en collaboration avec Laurent Gugen du groupe cocon, équipe PEGASE.
+	Le projet est effectué avec le LBBE, en collaboration avec Laurent Guéguen du groupe cocon, équipe PEGASE.
 	
 	
 \subsection{Existant}
-	\textit{Bio++}\footnote{https://github.com/BioPP} est une suite de librairies en C++ dédiées à la phylogénie et à l'analyse d'évolution de séquences biologiques. Au sein de cette suite, bppsuite est une solution stand alone qui permet l'utilisation de libraries de \textit{Bio++} (\textit{bpp-core, bpp-seq, bpp-phyl, bpp-popgen}) dont le but est de simuler l'évolution de séquences, des analyses phylogéniques, l'estimation du meilleur modèle d'évolution... Cette suite manipule des objets variées tels que des abres, des séquences, des modèles, des process dont les possibilités combinatoires sont infinies. Voici la liste des modules de \textit{Bio++} sur lesquels nous allons travailler:
+	\textit{Bio++}\footnote{https://github.com/BioPP} ~\cite{Guéguen} est une suite de librairies en C++ dédiées à la phylogénie et à l'analyse d'évolution de séquences biologiques. Au sein de cette suite, bppsuite est une solution stand alone qui permet l'utilisation de libraries de \textit{Bio++} (\textit{bpp-core, bpp-seq, bpp-phyl, bpp-popgen}) dont le but est de simuler l'évolution de séquences, des analyses phylogéniques, l'estimation du meilleur modèle d'évolution... Cette suite manipule des objets variées tels que des abres, des séquences, des modèles, des process dont les possibilités combinatoires sont infinies. Voici la liste des modules de \textit{Bio++} sur lesquels nous allons travailler:
 %itemize?
 	
 	\subsubsection*{bpp-seq}
@@ -26,6 +26,7 @@
 	
 	\subsubsection*{bppsuite}
 	Toutes les libraries citées précédement sont indépendantes les unes des autres. Le rôle de \textit{bppsuite} est d'offir des utilitaires prêts à l'emploi qui permetent de combiner tous ces modules afin de mener des analyses complexes avec une sytaxe commune. En combinant des jeux de données grands, avec une multitude d'abres et de modèles différents les possibiltés d'appel de \textit{bppsuite} sont nombreuses et complexes. Le paramétrage de \textit{bppsuite} peut se faire via la ligne de commande mais en pratique elle est plutot faite via un fichier texte de configuration. Ce fichier définie les objets à manipuler et les paramètres qui leur sont associés.
+	Un des composant de \textit{bppsuite} est \textit{bppml} qui applique les principes de maximum de vraissemblance à la phylogénie. C'est cette partie de \textit{bppsuite} que nous implémenterons sur le serveur.
 	
 	
 \subsection{Objectifs}
@@ -33,7 +34,7 @@
 	%Recuperation des fichiers résultats
 	%Aller retour entre config avec GUI et fichier text de généré
 	%au long terme de runner sur un serveur
-	La complexité grandissante du fichier de paramétrage, associé à une grammaire propre peut être rédhibitoire à l'utilisation de \textit{bppsuite}. L'objectif de ce projet est de démocratiser l'utilisation de cet outil en développant une interface web intuitive qui permettera à l'utilisateur de réaliser la modélisation qu'il désire et retournera le fichier de configuration. Cette interface devra pouvoir jongler entre le paramétrage de \textit{bppsuite} et une repésentation visuelle de la modélisation. Cette modélisation sera ensuite éxécutées par \textit{bppsuite} et les fichiers de sorties devront aussi pouvoir être accessible par l'interface. Au long terme, le but est de faire tourner \textit{bppsuite} sur un serveur situé sur le campus, offrant aux utilisateurs curieux une version sans code et installation afin de pouvoir facilement utiliser ces outils.
+	La complexité grandissante du fichier de paramétrage, associé à une grammaire propre peut être rédhibitoire à l'utilisation de \textit{bppml}. L'objectif de ce projet est de démocratiser l'utilisation de cet outil en développant une interface web intuitive qui permettera à l'utilisateur de réaliser la modélisation qu'il désire et retournera le fichier de configuration. Cette interface devra pouvoir jongler entre le paramétrage de \textit{bppml} et une repésentation visuelle de la modélisation. Cette modélisation sera ensuite éxécutées par \textit{bppml} et les fichiers de sorties devront aussi pouvoir être accessible par l'interface. Au long terme, le but est de faire tourner \textit{bppml} sur un serveur situé sur le campus, offrant aux utilisateurs curieux une version sans code et installation afin de pouvoir facilement utiliser ces outils. Au long terme, les autres parties de \textit{bppsuite} pourront être ajouter à cette implémentation.
 	
 \subsection{Acceptabilité}
 	%Interface graphique
