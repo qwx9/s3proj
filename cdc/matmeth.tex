@@ -98,7 +98,7 @@ et l'autre le rendu des résultats et leur visualisation.
 La partie serveur elle communiquera avec la machine client
 pour générer les lignes de commandes et fichiers d'entrée
 pour lancer \textit{bppml},
-puis renvoyer les résultats du calcul à l'utilisateur.
+puis renvoyer les résultats du calcul à l'utilisateur (figure \ref{fig:des}).
 
 Le déploiement de l'outil devra être facile et rapide
 pour prendre en compte des changements de serveur
@@ -136,6 +136,13 @@ de permettre de limiter l'implémentation dans le cadre de ce projet
 aux fonctionnalités principales,
 de donner la capacité d'ajouter le reste par la suite,
 et de s'adapter à l'évolution future de la suite.
+
+\begin{figure}
+	\caption{Design général de \textit{bpp-web}}
+	\includegraphics[scale=0.5]{fig/SchemaConcept.pdf}
+	\centering
+	\label{fig:des}
+\end{figure}
 
 
 \subsection{Implémentation}
@@ -213,12 +220,6 @@ et les articles de recherche sur la suite.
 Le développement se fera en local sur machine personnelles
 avant de le déployer pour qu'il soit accessible publiquement,
 pour avoir directement un site fonctionnel dès publication.
-
-\begin{figure}
-	\caption{Design général de \textit{bpp-web}}
-	\includegraphics[scale=0.5]{fig/SchemaConcept.pdf}
-	\centering
-\end{figure}
 
 
 \subsection{Extensions possibles}
