@@ -19,15 +19,15 @@ logiciel dédié au calcul de Maximum de vraisemblance \textit{bppml} suivra les
 	\item Installation et test de fonctionnement de \textit{bppsuite}: la suite logicielle est installée en local sur nos machines. 
 	Parmi les douze logiciels qui en font partie, spécifiquement   \textit{bppml} a été choisi par le demandeur de la prestation comme cible 
 	du développement web du présent travail. Des exemples de fichiers de configuration (contenant \textit{a minima} les éléments: alignement, arbre(s), modèle(s)) 
-	ont été mis a notre disposition  
-	afin de tester plusieurs scenarios possibles, du plus simple, en passant par les cas les plus fréquents "standard", 
-	jusqu'aux modèles plus exigeantes comptant d'avantage de paramètres. Pendant cette étape nous aurons l'opportunité d'explorer
+	ont été mis à notre disposition  
+	afin de tester plusieurs scenarios possibles, du plus simple, en passant par les cas les plus fréquents "standards", 
+	jusqu'aux modèles plus exigeants comptant d'avantage de paramètres. Pendant cette étape nous aurons l'opportunité d'explorer
 	 la modélisation des processus évolutifs en phylogénie.
 	
 	\item Développement d'une application en locale: le framework python Flask et des librairies npm
 	(le gestionnaire de paquets officiel de Node.js) 
 	ont été choisis en raison du bon rapport entre flexibilité et stabilité, 
-	ayant une ample gamme de librairies disponibles pour un développement rapide et au même temps efficace, 
+	ayant une ample gamme de librairies disponibles pour un développement rapide et en même temps efficace, 
 	ce qui est convenable en raison des contraintes de temps du projet.
 
 	On produira un premier prototype  \textit{bpp-web}, acceptant en entrée un modèle ayant les paramètres minimaux requis. 
@@ -35,7 +35,7 @@ logiciel dédié au calcul de Maximum de vraisemblance \textit{bppml} suivra les
 	des variables (plusieurs arbres, plusieurs modèles).
 	Ceci sera réalisé en trois phases parallèles:
 	\begin{enumerate}
-		\item Développement de l'interface entrée qui permettra un usage intuitif de la part du utilisateur. 
+		\item Développement de l'interface entrée qui permettra un usage intuitif de la part de l'utilisateur. 
 		Un script .js capture les variables insérées par l'utilisateur. 
 		\item Scripting pour la transmission des variables depuis celles capturées par .js en passant par le langage 
 		python (Flask) jusqu'un fichier .txt qui est donné en entrée au logiciel \textit{bppml}.
@@ -49,7 +49,7 @@ logiciel dédié au calcul de Maximum de vraisemblance \textit{bppml} suivra les
 	à l'étape précédente, ce qui sera réalisé en deux pas simultanés:
 	\begin{itemize}
 		\item la mise en place et déploiement de l'interface web sur un Serveur Linux.
-		\item l'exécution des derniers tests et correction d'éventuels erreurs.
+		\item l'exécution des derniers tests et correction d'éventuelles erreurs.
 	\end{itemize}
 	
 	Les délais pour chacune des étapes du projet sont visualisés dans la figure~\ref{planning}.
@@ -64,7 +64,7 @@ logiciel dédié au calcul de Maximum de vraisemblance \textit{bppml} suivra les
 
 
 \subsection{Plan d'assurance qualité}
- Pour contrôler la qualité du logiciel, à chaque test effectué la sortie sera  
+ Pour contrôler la qualité du logiciel, à chaque test effectué, la sortie sera  
  évaluée sous critères de cohérence, complétude (aucun fichier de sortie omis ou délaissé)
  et structure. Sur des modèles plus complexes, l'aval des sorties par l'expert du logiciel \textit{bppml} sera nécessaire.
 
@@ -90,8 +90,8 @@ La documentation sera apportée en totalité dans un dépôt GitHub.
 	
 \subsection{Responsabilités}
 \subsubsection{Maîtrise d'ouvrage}
-Les développeur \textit{Bio++}, représentée par M. Laurent Guéguen est le
- demandeur du présent travail. Les délais données correspondent a ceux de la matière 
+Les développeurs de \textit{Bio++}, représentés par M. Laurent Guéguen qui est le
+ demandeur du présent travail. Les délais données correspondent à ceux de la matière 
  Projet du M2 bio-info, ayant pour dates clés les suivantes:
 \begin{itemize}
 	\item 25/09 : description des besoins par le maître d'ouvrage.

@@ -3,13 +3,13 @@
 \subsection{Besoins fonctionnels principaux}
 
 L'objectif principal est de produire une interface web fonctionnelle pour les outils \textit{Bio++},
-et de la déloyer sur un serveur du laboratoire d'accueil accessible depuis l'extérieur.
+et de la déployer sur un serveur du laboratoire d'accueil accessible depuis l'extérieur.
 L'interface doit impérativement être simple et accessible pour un publique non-expert,
 ciblé essentiellement sur des biologistes travaillant sur des projets en génétique évolutive.
 En outre, ce projet permet à un utilisateur potentiel
 de s'abstraire de l'installation des différents outils,
-qui nécessite une connaissance des environnements Unix-like
-leur administration, et la compilation de logiciels C++.
+qui nécessite une connaissance des environnements Unix-like, de 
+leur administration, et de la compilation de logiciels C++.
 En d'autres termes, l'idée de ce projet
 est de permettre de rendre la suite accessible
 à un publique beaucoup plus large
@@ -36,7 +36,7 @@ Sa réactivité, efficacité et la rapidité du rendu
 doit donc être bien prise en compte dans son design et implémentation.
 
 L'introduction à la suite \textit{Bio++} par le biais de la nouvelle interface
-sera facilité par l'accès à des templates de modèles évolutifs,
+sera facilitée par l'accès à des templates de modèles évolutifs,
 et un tutoriel rapide,
 tous transposés depuis des documents et exemples
 déjà disponibles dans les dépôts de \textit{Bio++}.
@@ -70,18 +70,18 @@ pour d'autres calculs.
 
 La complexité du projet provient du fait que les données d'entrée
 peuvent être toutes les combinaisons imaginables
-de séquences, de modèles, d'arbres, paramètres ou racines d'arbres,
+de séquences, de modèles, d'arbres, de paramètres ou de racines d'arbres,
 de nombre différent à chaque fois.
 La combinaison des différents modèles,
 qui peuvent être appliqués sur un arbre ou sur des branches individuelles,
 des racines d'arbres,
 avec des taux évolutifs différents ou pas, etc.,
-sont nommés des "processus" évolutifs,
+est nommée "processus" évolutifs,
 qui peuvent eux-même être emboîtés.
 Les modèles peuvent être réutilisés
 dans un autre run de \textit{bppml}.
 A terme, \textit{bppml} saura gérer des alphabets autres que nucléiques
-(protéique, codons, etc.),
+(protéiques, codons, etc.),
 voire même les mélanger.
 Les processus sont ensuite appliqués sur les séquences en entrée.
 
@@ -93,7 +93,7 @@ le design considéré est celui d'une architecture serveur-client classique.
 
 La partie client sera divisée en deux composantes,
 l'une gérant l'entrée et la validation des données et paramètres,
-et l'autre le rendu des résultats et leur visualisation.
+et l'autre, le rendu des résultats et leur visualisation.
 
 La partie serveur elle communiquera avec la machine client
 pour générer les lignes de commandes et fichiers d'entrée
@@ -108,11 +108,11 @@ doit être sans effort.
 Les dépendances du projet doivent donc en outre
 être faciles à gérer.
 L'implémentation ne doit pas utiliser des chemins en dur sur le système de fichiers
-et utiliser des fichiers de configuration
+mais utiliser des fichiers de configuration
 pour s'abstraire de sa localisation.
 
 En termes de performance,
-le temps de réponse du serveur doit être minimale,
+le temps de réponse du serveur doit être minimal,
 sans temps de latence supplémentaire par rapport au temps de calcul de la suite.
 De l'autre côté, la partie client doit être peu lourde
 pour conserver une rapidité même sur des ordinateurs peu puissants,
@@ -179,12 +179,12 @@ De plus, des templates de modèles seront mis à disposition,
 pour construire des modèles à partir d'exemples fréquents,
 et pour copier ou sauvegarder des modèles construits sur l'interface.
 
-Les processus évolutif global appliqué sur les séquences
-sera constitué de toutes ces parties, en dehors des séquences.
+Les processus évolutifs globaux appliqués sur les séquences
+seront constitués de toutes ces parties, en dehors des séquences.
 Les sorties seront une phylogénie optimisée
 avec ses fichiers correspondants
 (intermédiaires, logs, résultats)
-qui peuvent être téléchargés.
+qui pourront être téléchargés.
 La phylogénie elle-même sera représentée avec des graphiques interactifs.
 
 Les logiciels ne dépendent pas de données volumineuses
@@ -201,7 +201,7 @@ La page résultats sera obtenue en suivant ce lien.
 
 Le serveur peut être implémenté sous Python avec Flask.
 Le client utilisera Typescript transpilé en javascript.
-Les sorties sont attendues à être assez simples,
+Les sorties attendues sont assez simples,
 pour ne nécessiter que des visualisations relativement simples
 sur graphiques SVG générées par D3.js.
 Une implémentation single-page dynamique est souhaitée.
@@ -214,12 +214,12 @@ soit directement et de façon non-intrusive sur l'interface.
 De plus, des tool-tips sur les différentes parties de l'interface
 la rendront plus facilement utilisable.
 Une page indiquera les auteurs, des contacts,
-des liens vers les dépôt et leur site officiel,
+des liens vers les dépôts et leur site officiel,
 et les articles de recherche sur la suite.
 
 Le développement se fera en local sur machine personnelles
 avant de le déployer pour qu'il soit accessible publiquement,
-pour avoir directement un site fonctionnel dès publication.
+et ainsi avoir directement un site fonctionnel dès publication.
 
 
 \subsection{Extensions possibles}
