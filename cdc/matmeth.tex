@@ -72,6 +72,7 @@ La complexité du projet provient du fait que les données d'entrée
 peuvent être toutes les combinaisons imaginables
 de séquences, de modèles, d'arbres, de paramètres ou de racines d'arbres,
 de nombre différent à chaque fois.
+\textit{bppml} peut de plus gérer les séquences d'alphabet autre que nucléique (protéique, codons).
 La combinaison des différents modèles,
 qui peuvent être appliqués sur un arbre ou sur des branches individuelles,
 des racines d'arbres,
@@ -80,7 +81,6 @@ est nommée "processus" évolutifs,
 qui peuvent eux-même être emboîtés.
 Les modèles peuvent être réutilisés
 dans un autre run de \textit{bppml}.
-Des alphabets autres que nucléiques (protéique, codons) sont gérés par \textit{bppml}, ce qui constitue un avantage.
 Les processus sont ensuite appliqués sur les séquences en entrée.
 
 
@@ -110,8 +110,8 @@ mais utiliser des fichiers de configuration
 pour s'abstraire de sa localisation.
 
 En termes de performance,
-le temps de réponse du serveur doit être minimal,
-sans temps de latence supplémentaire par rapport au temps de calcul de la suite.
+le temps de réponse du serveur doit être minimal
+pour assurer la meilleure réactivité de l'interface aux actions de l'utilisateur.
 De l'autre côté, la partie client doit être peu lourde
 pour conserver une rapidité même sur des ordinateurs peu puissants,
 ce qui est le cas assez fréquemment.
