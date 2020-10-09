@@ -18,21 +18,21 @@ prototype 1						:crit,	d1, 20201116, 1d
 application version finale et soutenance		:crit,	d2, 20201217, 1d
 
 
-section Prise en main bppSuite
-Installation en locale, tests bppml				:done, pma1, 20200929, 5d
-Tutoriel, identification infos entrée-sortie 		:active, pma2, 20201005,3d
+section Prise en main de bppml
+Installation en local de bppsuite			:done, pma1, 20200929, 5d
+Tutoriel bppml, identification infos entrée-sortie 		:active, pma2, 20201005,3d
 familiarisation modèlisation en phylogénie		:active, pma3, 20200925,3w
 
-section Conception et pre-réquis
-définition de l architecture de l application		:done, cp1, 20201002, 1d
-appropriation de Flask et npm    			:active, cp2, 20201006, 5d
-prise en main de typescript    			: cp3, 20201007, 10d
+section Conception et pré-requis
+définition de l'architecture de l'application		:done, cp1, 20201002, 1d
+appropriation de Flask     			:active, cp2, 20201006, 5d
+prise en main html/css/typescript    		: cp3, 20201007, 10d
 
 
 section Application Web en locale
-dévélopement interface input client .ts et Flask	:	deweb1, 20201013, 5w
-scripting variables depuis .js à .py et bppml 		:	deweb2, 20201013, 5w
-scripting résultats bppml vers interface client	:	deweb4, 20201013, 5w
+dévélopement interface entrée .js	:	deweb1, 20201013, 5w
+scripting variables depuis Flask vers bppml 		:	deweb2, 20201013, 5w
+transfer résultats bppml vers interface sortie	:	deweb4, 20201013, 5w
 corrections					:	deweb5, 20201105, 2w
 implémentation et intégration				:	deweb6, 20201111, 2w
 
@@ -47,7 +47,7 @@ prise en main 						:app0, after prep2, 5d
 corrections éventuelles				:	app1, after app0, 2d
 
 section Objectifs secondaires et optionnels
-optimisations de l application			:	sec1, after app0, 20201202
+optimisations de l'application			:	sec1, after app0, 20201202
 
 ", width=1280, height=1024)
 #print(x)
