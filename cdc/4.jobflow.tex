@@ -11,16 +11,16 @@
 
 \subsection{Planification}
 
-Le développement de l'interface web pour l'utilisation du 
-logiciel dédié au calcul de Maximum de vraisemblance \textit{bppml} suivra les
+Le développement de \textit{bpp-web}, l'interface web pour l'utilisation du
+logiciel dédié au calcul par maximum de vraisemblance \textit{bppml} suivra les
  étapes suivantes:
 
-\begin{itemize}
+\begin{itemize}[topsep=1ex,itemsep=1ex,partopsep=1ex,parsep=1ex]
 	\item Installation et test de fonctionnement de \textit{bppsuite}: la suite logicielle est installée en local sur nos machines. 
 	Parmi les douze logiciels qui en font partie, spécifiquement   \textit{bppml} a été choisi par le demandeur de la prestation comme cible 
 	du développement web du présent travail. Des exemples de fichiers de configuration (contenant \textit{a minima} les éléments: alignement, arbre(s), modèle(s)) 
 	ont été mis à notre disposition  
-	afin de tester plusieurs scenarios possibles, du plus simple, en passant par les cas les plus fréquents "standards", 
+	afin de tester plusieurs scenarios possibles, du plus simple, en passant par les cas les plus fréquents "standard",
 	jusqu'aux modèles plus exigeants comptant d'avantage de paramètres. Pendant cette étape nous aurons l'opportunité d'explorer
 	 la modélisation des processus évolutifs en phylogénie.
 	
@@ -30,27 +30,28 @@ logiciel dédié au calcul de Maximum de vraisemblance \textit{bppml} suivra les
 	ayant une ample gamme de librairies disponibles pour un développement rapide et en même temps efficace, 
 	ce qui est convenable en raison des contraintes de temps du projet.
 
-	On produira un premier prototype  \textit{bpp-web}, acceptant en entrée un modèle ayant les paramètres minimaux requis. 
+	Nous produirons un premier prototype  \textit{bpp-web}, acceptant en entrée un modèle ayant les paramètres minimaux requis.
 	Cette application intermédiaire sera rapidement enrichie pour offrir à l'utilisateur de \textit{bppml} la totalité des possibles affectations 
 	des variables (plusieurs arbres, plusieurs modèles).
 	Ceci sera réalisé en trois phases parallèles:
-	\begin{enumerate}
+	\begin{enumerate}[topsep=1ex,itemsep=1ex,partopsep=1ex,parsep=1ex]
 		\item Développement de l'interface entrée qui permettra un usage intuitif de la part de l'utilisateur. 
 		Un script .js capture les variables insérées par l'utilisateur. 
 		\item Scripting pour la transmission des variables depuis celles capturées par .js en passant par le langage 
-		python (Flask) jusqu'un fichier .txt qui est donné en entrée au logiciel \textit{bppml}.
-		\item Scripting pour la capture soit des résultats, soit des messages d'erreur (stderr) et transmission à travers 
-		le framework Flask vers le client, et visualisation de l'arbre obtenu \textit{in situ}. 
+		python (Flask) vers un fichier .txt qui est donné en entrée au logiciel \textit{bppml}.
+		\item Scripting pour la capture soit des résultats, soit des messages d'erreur (sur \textit{stderr}),
+		puis transmission à travers le framework Flask vers le client,
+		et visualisation de l'arbre obtenu \textit{in situ}.
 	\end{enumerate}
 	
 	La possibilité de boucler des résultats vers l'entrée client sera étudiée.
 	 
-	\item La Version définitive de \textit{bpp-web} reposera sur le même framework développé
+	\item La version définitive de \textit{bpp-web} reposera sur le même framework développé
 	à l'étape précédente, ce qui sera réalisé en deux pas simultanés:
-	\begin{itemize}
-		\item la mise en place et déploiement de l'interface web sur un Serveur Linux.
+	\begin{enumerate}
+		\item la mise en place et déploiement de l'interface web sur un serveur Linux.
 		\item l'exécution des derniers tests et correction d'éventuelles erreurs.
-	\end{itemize}
+	\end{enumerate}
 	
 	Les délais pour chacune des étapes du projet sont visualisés dans la figure~\ref{planning}.
 	\begin{figure}[ht!]
@@ -90,14 +91,14 @@ La documentation sera apportée en totalité dans un dépôt GitHub.
 	
 \subsection{Responsabilités}
 \subsubsection{Maîtrise d'ouvrage}
-Les développeurs de \textit{Bio++}, représentés par M. Laurent Guéguen qui est le
- demandeur du présent travail. Les délais données correspondent à ceux de la matière 
- Projet du M2 bio-info, ayant pour dates clés les suivantes:
+Les développeurs de \textit{Bio++}, sont représentés par M. Laurent Guéguen qui est le
+ demandeur du présent travail. Les délais donnés correspondent à ceux d'UE
+ Projet S3 du Master 2 Bio-informatique, ayant pour dates clés:
 \begin{itemize}
-	\item 25/09 : description des besoins par le maître d'ouvrage.
-	\item 30/09 : apport des exemples et Tutoriel par le maître d'ouvrage.
-	\item 09/10 : rendu du cahier des charges 
-	\item 17/12 : délivrable et soutenance 
+	\item 25/09: description des besoins par le maître d'ouvrage.
+	\item 30/09: apport des exemples et du tutoriel par le maître d'ouvrage.
+	\item 09/10: rendu du cahier des charges.
+	\item 17/12: délivrable et soutenance.
 \end{itemize}
 Il n'y a pas de budget officiel institutionnel consacré à ce projet. 
 
@@ -106,9 +107,9 @@ Il n'y a pas de budget officiel institutionnel consacré à ce projet.
 Les trois branches simultanées de développement sont attribuées comme suit:
 
 \begin{itemize}
-	\item Hadrien : back-end.
-	\item Konstantinn : interface entrée : configuration, validation, visualisation du run.
-	\item Johanna : interface sortie client : visualisation, sauvgarde des résultats.
+	\item Hadrien: back-end.
+	\item Konstantinn: interface entrée: configuration, validation, visualisation du run.
+	\item Johanna: interface sortie client: visualisation, sauvgarde des résultats.
 \end{itemize}
 
 Le responsable de projet est M. Laurent Guéguen.
