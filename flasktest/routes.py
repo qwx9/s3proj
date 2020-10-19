@@ -28,29 +28,33 @@ def home():
 	homemailform = mailForm()
 	return render_template('home.html', title = 'home', homemailform = homemailform)
     
-@app.route('/mailconfirm', methods=['GET','POST'])
+@app.route('/mailconfirm', methods=['GET','POST'])  #
 ## https://www.youtube.com/watch?v=vF9n248M1yk
 def mailconfirm():
-	email = request.form ['email']
-	token = serialz.dumps(email, salt='email-confirm')	
-	link = url_for('mailconfirm', token=token, _external=True)
-	msg = Message("Confirm your mail", sender=sendermail, recipients=[email])
-	msg.body = 'Click on this link to start using bpp-web : {}'.format(link)
-	mail.send(msg) 
-	return '<p> GO TO YOUR MAIL AND DO AS WE COMMAND YOU ;)\
-		 **check also spam**!!! <br> input mail is : {}\
-		 <br>token : {}</p>'.format(email, token)
+	if request.method == 'POST':
+		email = request.form ['email']
+		token = serialz.dumps(email, salt='email-confirm')	
+		link = url_for('mailconfirm', token=token, _external=True)
+		msg = Message("Confirm your mail", sender=sendermail, recipients=[email])
+		msg.body = 'Click on this link to start using bpp-web : {}'.format(link)
+		mail.send(msg) 
+		return '<p> GO TO YOUR MAIL AND DO AS WE COMMAND YOU ;)\
+			 **check also spam**!!! <br> input mail is : {}\
+		 	<br>token : {}</p>'.format(email, token)
+	elif request.method == 'GET': 
+		#redirect(url_for('mailconfirmEnd'))
+		return '<p> still struggling, but improving </p>'
 
 @app.route("/mailconfirmEnd/<token>")
 def mailconfirmEnd(token):
 	try:
 		outm = serialz.loads(token, salt="email-confirm", max_age=3600)
-		#return f'<h1>yeah, {token}, mail : {outm}</h1>'
-		return redirect(url_for('query'))  #TODO tomorrow check if redirect is ok
+		return f'<h1>yeah, {token}, mail : {outm}</h1>'
+		#return redirect(url_for('query'))  #TODO tomorrow check if redirect is ok
 	except SignatureExpired:
 		return f'<h2> The token {token} is expired {outm}</h2>'
+
 		
-	
 
 @app.route('/query', methods=['GET', 'POST'])
 def query():
