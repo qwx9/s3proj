@@ -7,11 +7,10 @@ var treeNewickString = "(((EELA:0.150276,CONGERA:0.213019):0.230956,(EELB:0.2634
 //https://stackoverflow.com/questions/42499535/passing-a-json-object-from-flask-to-javascript
 
 function loadparamsout(){
-    var jsonobj = JSON.parse('{{ data|tojson|safe }}');
-    var paramsout = jsonobj.paramsout;
+    var dataobj = JSON.parse('{{ data | tojson | safe}}');
+    var paramsout = JSON.stringify(dataobj.paramsout);
     return paramsout;
-
-
+}
 
   //check output2json.py to know attribute
 

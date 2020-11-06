@@ -63,12 +63,10 @@ def query():
 	elif request.method == 'POST':
 		s1 = request.form['string1'] #example: "RESULTS"
 		s2 = request.form['string2'] # "user001"
-		showup = dictionnary(s1,s2)
-		data = dictio2json(showup) # the json data
-		return redirect( url_for('results', data=data) )
+		data = dictionnary(s1,s2)
+		datastr = str(dictio2json(data)) # the json data
+		return redirect( url_for('results', data=datastr) )
 		
-		#return redirect(url_for('results'))
-
 
 @app.route('/results', methods = ['POST', 'GET'] )
 def results(): 
