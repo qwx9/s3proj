@@ -7,17 +7,17 @@ var treeNewickString = "(((EELA:0.150276,CONGERA:0.213019):0.230956,(EELB:0.2634
 //https://stackoverflow.com/questions/42499535/passing-a-json-object-from-flask-to-javascript
 
 function loadparamsout(){
-    var jsonobj = JSON.parse('{{ data|tojson|safe  }}');
+    var jsonobj = JSON.parse('{{ data|tojson|safe }}');
     var paramsout = jsonobj.paramsout;
     return paramsout;
-}// JSON.parse('{{data|tojson|safe}}')
+
 
 
   //check output2json.py to know attribute
 
 // ===== show in textarea the output parameters:
 function paramsResults(){
-    paramsString = "pendingpassvar";
+    paramsString = loadparamsout();
     var display = document.createElement("TEXTAREA"); // https://www.w3schools.com/js/js_htmldom_nodes.asp
     display.setAttribute("id","pulledparameters");
     display.style.height = "200px";
