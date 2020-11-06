@@ -1,11 +1,15 @@
 {% extends "template1.html" %}
 {% block content %}
-<head>
+<p>testing <span id="show"></span></p>
+<script>//var user = JSON.parse('{{ data|tojson|safe }}');
+  window.appConfig
+  var user = '{{data}}'
+  document.getElementById("show").innerHTML = "===> "+user;
+  var treeNewickString = user;</script>
 
+<h2>Results</h2>
 
-<h2>results</h2>
-<data>{{ data|tojson|safe }}</data>
-<body id="body" onload=paramsResults() >
+<body id="body" onload=paramsResults(),vv()>
 
     <div id="lateral">
       <div id="parameters">
@@ -20,7 +24,7 @@
       </div>
   
   
-      <div id="SubtreeRelated">
+      <div id="SubtreeRelated" >
           <h4>SubTree Section (Newick)</h4>
           <p> here the subtree selection 
             should show up

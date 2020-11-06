@@ -5,6 +5,7 @@ from form import *
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 from output2json import *#the .py that does stuff with server files
+import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'notsecrettestkey'
@@ -63,8 +64,9 @@ def query():
 	elif request.method == 'POST':
 		s1 = request.form['string1'] #example: "RESULTS"
 		s2 = request.form['string2'] # "user001"
-		data = dictionnary(s1,s2)
-		datastr = str(dictio2json(data)) # the json data
+		#data = dictionnary(s1,s2)
+		#datastr = stringlikejson(s1,s2) # string simplement, both par nwk
+		datastr=getjustnewick(s1,s2)
 		return redirect( url_for('results', data=datastr) )
 		
 
