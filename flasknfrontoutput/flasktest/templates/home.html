@@ -1,0 +1,15 @@
+{% extends "template1.html" %}
+{% block content %}
+	<h1>bpp-web</h1> <!--replaced h2:homepage-->
+	<p>BppSuite is a suite of ready-to-use programs for phylogenetic and sequence analysis.</p>
+	<a href="https://github.com/BioPP/bppsuite">bppsuite github page</a>
+	
+	<h3>confirm your email to continue</h3>
+	<form method="POST" action="/mailconfirm">
+		{{ homemailform.hidden_tag() }}
+		{{ homemailform.email.label() }}
+		{{ homemailform.email() }}
+		{{ homemailform.submit() }}
+	</form>
+
+{%  endblock content %}

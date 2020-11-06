@@ -1,0 +1,62 @@
+{% extends "template1.html" %}
+{% block content %}
+<head>
+
+
+<h2>results</h2>
+
+<body id="body" onload=paramsResults() >
+
+    <div id="lateral">
+      <div id="parameters">
+        <h3>Parameters</h3>
+        <!--Here paramResults will appear as defined by resphyloapp.js-->
+        <input id="childElement" type=button name=reuse value=reuse onclick="reuseparameters()">
+      
+        <button onclick="reloadparams()">Reload Output Parameters</button>
+        <!--a select files (from user local) button:-->
+        <h5>Add extra-parameters (optional) : </h5>
+        <input type="file" onchange='readText(this)'  />
+      </div>
+  
+  
+      <div id="SubtreeRelated">
+          <h4>SubTree Section (Newick)</h4>
+          <p> here the subtree selection 
+            should show up
+            in newik
+          </p>
+          <p> here the subtree selection 
+              should show up
+              in newik
+            </p>
+      </div>
+    </div> <!--end div lateral-->
+    <div id="blankdivision" width="5" height="5"></div>
+  
+    <div id=treeplayground  width="1800" height="1200" >
+        <form>
+            <label>Radial layout</label>
+            <input type="checkbox" id="layout"  />
+        </form>
+        
+       <div id="treeviz"  >
+            <svg id="tree_display" ></svg>
+        </div>
+  
+       </div>
+  
+  
+  </body>
+  
+  <footer id="footer">
+      <p> *** IMPORTANT pending to cite phylotree  
+        https://github.com/veg/phylotree.js 
+         http://phylotree.hyphy.org/documentation/index.html **</p>
+  </footer>
+  </html>
+
+
+
+
+{%  endblock content %}
