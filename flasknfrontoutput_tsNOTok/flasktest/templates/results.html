@@ -1,28 +1,23 @@
 {% extends "template1.html" %}
 {% block content %}
-<p>testing <span id="show"></span></p>
-<script>//var user = JSON.parse('{{ data|tojson|safe }}');
-  window.appConfig
-  var user = '{{data}}'
-  document.getElementById("show").innerHTML = "===> "+user;
-  var treeNewickString = user;</script>
+
 
 <h2>Results</h2>
 
-<body id="body" onload=paramsResults(),vv()>
-
+  <body id="body" onload=paramsResults()>
+  
+    <span hidden id="show2">{{data}}</span>
     <div id="lateral">
       <div id="parameters">
         <h3>Parameters</h3>
         <!--Here paramResults will appear as defined by resphyloapp.js-->
         <input id="childElement" type=button name=reuse value=reuse onclick="reuseparameters()">
-      
+        <input id="childElement2" type=button name=reuse value=reuse onclick="reuseparameters()">
         <button onclick="reloadparams()">Reload Output Parameters</button>
         <!--a select files (from user local) button:-->
         <h5>Add extra-parameters (optional) : </h5>
         <input type="file" onchange='readText(this)'  />
       </div>
-  
   
       <div id="SubtreeRelated" >
           <h4>SubTree Section (Newick)</h4>
@@ -36,10 +31,13 @@
             </p>
       </div>
     </div> <!--end div lateral-->
-    <div id="blankdivision" width="5" height="5"></div>
+
+    <div id="blankdivision" width="5" height="5" > 
+    </div>
   
     <div id=treeplayground  width="1800" height="1200" >
         <form>
+            <input type="button" name="showtree" value="showtree" onclick="treedisplay()">
             <label>Radial layout</label>
             <input type="checkbox" id="layout"  />
         </form>

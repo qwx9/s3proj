@@ -21,12 +21,18 @@ def dictionnary(resdir,userdir):
     dicti["newick"] = filetostring(Upath, "*.dnd")
     return dicti
 
-def stringlikejson(resdir,userdir):
-    Upath = os.path.join(cwd,resdir,userdir)
-    stri = ""
-    stri += '{"paramsout" : "'+ filetostring(Upath, "*.dnd") +'"}'
-    return stri
-    # '{"toto" : "yeah...mystring" }'
+#def stringlikejson(resdir,userdir):
+#    Upath = os.path.join(cwd,resdir,userdir)
+#    stri = ""
+#    stri += '{"paramsout" : "'+ filetostring(Upath, "*.dnd") +'"}'
+#    return stri
+#    # '{"toto" : "yeah...mystring" }'
+
+def stringlikejson(resdir, userdir):
+    Upath = os.path.join(cwd, resdir. usedir)
+    nwk = filetostring(Upath, "*.dnd")
+    return nwk
+    
 
 def getjustnewick(resdir,userdir):
     Upath = os.path.join(cwd,resdir,userdir)
