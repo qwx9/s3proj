@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% if title %}
+			<title> bpp-web {{title}} </title>
+		{% else %}
+			<title>bpp-web</title>
+		{% endif %}
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<link href="https://veg.github.io/phylotree.js/phylotree.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="https://d3js.org/d3.v3.min.js"></script>
+		<script src="https://veg.github.io/phylotree.js/phylotree.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" charset="utf-8"></script>
+
+		<script src="{{url_for('static', filename='sibling.ts')}}"></script>
+		<script src="{{url_for('static', filename='resphyloapp.js')}}"></script>
+	
+		<!--completely OOPTIONAL styles (just for first prototype)-->
+		<link rel="stylesheet" href="../static/optionalStyles.css" type="text/css"/>
+	</head>
+	<body>
+		<ul>
+		<li><a href="{{ url_for('home') }}" >Home</a></li>
+		<li><a href="{{ url_for('query') }}">Query</a></li>
+	
+		<li><a href="{{ url_for('results') }}">Results</a></li>
+
+		<li><a href="{{ url_for('TEST') }}">TEST</a></li>
+		</ul>
+		
+		{% block content%}
+		
+		{% endblock %}
+	</body>
+</html>
